@@ -1,12 +1,12 @@
 <div>
     <h2>Login</h2>
-    <form action="#" method="post">
+    <form>
         <label for="login">Username:</label>
-        <input type="text" id="login" name="login" required>
+        <input formControlName="name" type="text" id="login" name="login">
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input formControlName="password" type="password" id="password" name="password">
 
-        <button type="submit">Login</button>
+        <button type="submit" (click)="testi()">Login</button>
     </form>
 </div>
