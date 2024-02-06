@@ -2,11 +2,21 @@
     <h2>Login</h2>
     <form>
         <label for="login">Username:</label>
-        <input formControlName="name" type="text" id="login" name="login">
+        <br>
+        <input [formControl]="name" type="text" id="login" name="login">
+        <br>
+        <span>Valeur de Username : {{ name.value }}</span>
+        <br>
+        <br>
 
         <label for="password">Password:</label>
-        <input formControlName="password" type="password" id="password" name="password">
+        <br>
+        <input [formControl]="password" type="password" id="password" name="password">
+        <br>
+        <span>Valeur de Password : {{ password.value }}</span>
+        <br>
 
+        <br>
         <button type="submit" (click)="testi()">Login</button>
     </form>
 </div>
