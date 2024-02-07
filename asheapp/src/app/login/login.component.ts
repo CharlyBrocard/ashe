@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Apollo } from 'apollo-angular';
+import { Apollo, Query, gql } from 'apollo-angular';
 import { AUTH } from '../graphlql.auth';
 
 @Component({
@@ -19,13 +19,34 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('tape à gauche');
+  
   }
 
-  testi() {
+  testData() {
     console.log(this.name.value);
     console.log(this.password.value);
-    this.apollo.query({
-      query: AUTH
-    })
+    this.apollo.watchQuery<Query>({
+      query: gql`
+      query {
+          auth (
+            dto: {
+              login: "ropo"
+              password: "password"
+            }
+          ) {
+            accessToken
+            id
+            code
+            name_first
+            name_last
+            description
+            mail
+            creation
+            modification
+            language
+          }
+        }
+      `
+    });  
   }
 }
