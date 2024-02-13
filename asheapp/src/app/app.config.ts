@@ -4,8 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
-import { graphqlProvider } from './graphql.provider';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), provideHttpClient(), graphqlProvider]
+  providers: [provideRouter(routes), provideClientHydration(), provideHttpClient()]
 };
