@@ -1,3 +1,5 @@
+import { session } from "../../session/session";
+
 export class Auth {
   client:any;
 
@@ -31,8 +33,7 @@ export class Auth {
     })
     .then((response) => response.json())
     .then((body) => {
-      sessionStorage.setItem('accessToken', body.data.auth.accessToken);
-      console.log(body.data.auth.accessToken);
+      session.token = body.data.auth.accessToken;
     });
 
     /*this.client
